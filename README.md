@@ -87,28 +87,3 @@ graph TD
     J --> L
     K --> M([📥 Downloadable PDF])
     L --> A
-
-
-sequenceDiagram
-    participant U as User
-    participant UI as Streamlit App
-    participant P as Preprocessing Pipeline
-    participant M as ML Model (Joblib)
-    participant R as ReportLab Generator
-
-    U->>UI: Submit Applicant Form
-    UI->>P: Send Raw Features
-    P->>P: Handle Missing Values (SimpleImputer)
-    P->>P: Encode Categoricals (OHE/Label)
-    P->>P: Engineer Features (DTI², Credit²)
-    P->>P: Scale Features (StandardScaler)
-    P->>M: Pass Processed Array
-    M-->>UI: Return Prediction & Confidence Score
-    UI->>UI: Generate XAI Explanation
-    UI-->>U: Display Dashboard Results
-    U->>UI: Request "What-If" Analysis
-    UI->>M: Send Adjusted Array
-    M-->>UI: Return Alternate Prediction
-    U->>UI: Click "Download Report"
-    UI->>R: Send Assessment Context
-    R-->>U: Deliver Professional PDF
