@@ -11,7 +11,7 @@ from src.dashboard import (
 
 from src.predict import predict_loan
 from src.what_if import suggest_improvements
-#from src.pdf_report import generate_pdf
+from src.pdf_report import generate_pdf
 
 # ----------------------------
 # Page Config
@@ -187,40 +187,40 @@ if st.session_state.prediction_done:
             st.session_state.result
         )
 
-    # # -----------------------------
-    # # One-Click Download PDF Report
-    # # -----------------------------
-    # # BUG FIX: this block used to run unconditionally on every script
-    # # execution, including before any prediction existed, which would
-    # # crash the app immediately on first load. It is now correctly
-    # # scoped inside "if st.session_state.prediction_done:".
-    # if not st.session_state.report_generated:
+    # -----------------------------
+    # One-Click Download PDF Report
+    # -----------------------------
+    # BUG FIX: this block used to run unconditionally on every script
+    # execution, including before any prediction existed, which would
+    # crash the app immediately on first load. It is now correctly
+    # scoped inside "if st.session_state.prediction_done:".
+    if not st.session_state.report_generated:
 
-    #     generate_pdf(
-    #         user_data=st.session_state.user_data,
-    #         result=st.session_state.result,
-    #         confidence=st.session_state.confidence,
-    #         suggestions=suggestions if st.session_state.result == "Rejected" else [],
-    #         output_path="CredenceAI_Report.pdf",
-    #         logo_path="assets/logo.png"
-    #         )
+        generate_pdf(
+            user_data=st.session_state.user_data,
+            result=st.session_state.result,
+            confidence=st.session_state.confidence,
+            suggestions=suggestions if st.session_state.result == "Rejected" else [],
+            output_path="CredenceAI_Report.pdf",
+            logo_path="assets/logo.png"
+        )
 
-    #     st.session_state.report_generated = True
+        st.session_state.report_generated = True
 
-    # if os.path.exists("CredenceAI_Report.pdf"):
+    if os.path.exists("CredenceAI_Report.pdf"):
 
-    #     st.markdown("<div class='section-heading'>📄 Loan Assessment Report</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-heading'>📄 Loan Assessment Report</div>", unsafe_allow_html=True)
 
-    #     with open("CredenceAI_Report.pdf", "rb") as pdf_file:
+        with open("CredenceAI_Report.pdf", "rb") as pdf_file:
 
-    #         st.download_button(
-    #             "📄 Download Loan Assessment Report",
-    #             data=pdf_file.read(),
-    #             file_name="CredenceAI_Report.pdf",
-    #             mime="application/pdf",
-    #             use_container_width=True,
-    #             type="primary"
-    #         )
+            st.download_button(
+                "📄 Download Loan Assessment Report",
+                data=pdf_file.read(),
+                file_name="CredenceAI_Report.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+                type="primary"
+            )
 
 # ----------------------------
 # Footer
