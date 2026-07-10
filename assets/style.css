@@ -1,0 +1,609 @@
+/* =================================================================
+Credence AI - Premium Banking UI Theme
+Refactored for strict 1:1 Light/Dark Streamlit Toggling
+================================================================= */
+
+/* STREAMING_CHUNK:Defining base Light Mode variables... /
+:root {
+/ LIGHT MODE (DEFAULT) */
+--bg: #F8FAFC;
+--card: #FFFFFF;
+--input: #FFFFFF;
+--border: #E5E7EB;
+--text: #111827;
+--muted: #6B7280;
+
+/* Brand Colors */
+--primary: #0F172A;
+--primary-light: #1E293B;
+--text-on-primary: #FFFFFF;
+
+--accent: #2563EB;
+--accent-hover: #1D4ED8;
+--text-on-accent: #FFFFFF;
+
+/* Status Colors */
+--success: #16A34A;
+--success-bg: #DCFCE7;
+--success-text: #166534;
+
+--danger: #DC2626;
+--danger-bg: #FEE2E2;
+--danger-text: #991B1B;
+
+--warning-bg: #FEF3C7;
+--warning-border: #F59E0B;
+--warning-text: #92400E;
+
+/* Layout */
+--radius: 16px;
+--radius-md: 10px;
+--radius-sm: 8px;
+--radius-lg: 20px;
+--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* STREAMING_CHUNK:Defining robust Dark Mode variable overrides... /
+/
+This selector checks if ANY element in the app (usually the wrapper)
+has the dark theme attribute. If so, it overrides the variables globally.
+/
+:root:has([data-theme="dark"]),
+[data-theme="dark"] {
+/ DARK MODE */
+--bg: #0B1220;
+--card: #131C2E;
+--input: #1B2538;
+--border: #334155;
+--text: #F8FAFC;
+--muted: #94A3B8;
+
+/* Brand Colors adapted for dark mode visibility */
+--primary: #2563EB;
+--primary-light: #3B82F6;
+--text-on-primary: #FFFFFF;
+
+--accent: #3B82F6;
+--accent-hover: #60A5FA;
+--text-on-accent: #FFFFFF;
+
+/* Status Colors */
+--success: #4ADE80;
+--success-bg: #16331E;
+--success-text: #86EFAC;
+
+--danger: #F87171;
+--danger-bg: #3A1414;
+--danger-text: #FCA5A5;
+
+--warning-bg: #45290A;
+--warning-border: #92400E;
+--warning-text: #FDE68A;
+
+--shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* STREAMING_CHUNK:Applying global typography and page background... /
+/ ---------------------------------------------------------------
+Global page + typography
+--------------------------------------------------------------- */
+
+.stApp,
+[data-testid="stAppViewContainer"] {
+background-color: var(--bg) !important;
+color: var(--text) !important;
+}
+
+html, body, [class*="css"] {
+font-family: "Segoe UI", "Inter", Arial, sans-serif;
+}
+
+footer[class*="viewerBadge"] {
+visibility: hidden;
+}
+
+/* STREAMING_CHUNK:Configuring layout spacing and dividers... */
+.block-container {
+padding-top: 1.5rem;
+padding-bottom: 3rem;
+padding-left: 2.5rem;
+padding-right: 2.5rem;
+max-width: 100%;
+}
+
+hr {
+border-color: var(--border) !important;
+margin: 1.75rem 0 !important;
+}
+
+/* STREAMING_CHUNK:Styling the Hero Header block... /
+/ ---------------------------------------------------------------
+Hero header (ui.py -> page_header)
+--------------------------------------------------------------- */
+
+.hero-banner {
+background: var(--primary);
+border-radius: var(--radius-lg);
+padding: 30px 34px;
+margin-bottom: 26px;
+}
+
+.main-title {
+color: var(--text-on-primary) !important;
+font-size: 26px;
+font-weight: 600;
+margin: 0 0 4px 0;
+}
+
+.sub-title {
+color: var(--text-on-primary) !important;
+opacity: 0.9;
+font-size: 14px;
+font-weight: 400;
+margin: 0 0 10px 0;
+}
+
+/* STREAMING_CHUNK:Styling hero description and section headings... */
+.hero-description {
+color: var(--text-on-primary) !important;
+opacity: 0.8;
+font-size: 12.5px;
+line-height: 1.6;
+margin: 0;
+max-width: 640px;
+}
+
+/* ---------------------------------------------------------------
+Section headings (forms.py, app.py)
+--------------------------------------------------------------- */
+
+.section-title {
+color: var(--primary);
+font-size: 16px;
+font-weight: 600;
+margin: 6px 0 2px 0;
+}
+
+.section-subtext {
+color: var(--muted);
+font-size: 12px;
+margin: 0 0 14px 0;
+}
+
+.section-heading {
+color: var(--primary);
+font-size: 16px;
+font-weight: 600;
+margin: 24px 0 12px 0;
+}
+
+/* STREAMING_CHUNK:Styling Streamlit container wrapper cards... /
+/ ---------------------------------------------------------------
+Card container (wraps st.container(border=True) blocks)
+--------------------------------------------------------------- */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+background-color: var(--card) !important;
+border: 1px solid var(--border) !important;
+border-radius: var(--radius) !important;
+box-shadow: var(--shadow-card) !important;
+padding: 6px 6px 2px 6px;
+margin-bottom: 20px;
+}
+
+/* STREAMING_CHUNK:Styling native Streamlit Inputs and Selectboxes... /
+/ ---------------------------------------------------------------
+Native Streamlit inputs
+--------------------------------------------------------------- */
+
+.stNumberInput input,
+.stTextInput input {
+border-radius: var(--radius-sm) !important;
+border: 1px solid var(--border) !important;
+background-color: var(--input) !important;
+color: var(--text) !important;
+-webkit-text-fill-color: var(--text) !important;
+font-size: 13px;
+}
+
+.stNumberInput input:hover,
+.stTextInput input:hover {
+border-color: var(--accent) !important;
+}
+
+.stSelectbox div[data-baseweb="select"] > div {
+border-radius: var(--radius-sm) !important;
+border: 1px solid var(--border) !important;
+background-color: var(--input) !important;
+font-size: 13px;
+}
+
+/* STREAMING_CHUNK:Ensuring input text remains visible in all states... */
+.stSelectbox div[data-baseweb="select"] > div:hover {
+border-color: var(--accent) !important;
+}
+
+.stSelectbox div[data-baseweb="select"] * {
+color: var(--text) !important;
+-webkit-text-fill-color: var(--text) !important;
+}
+
+label[data-testid="stWidgetLabel"] p {
+font-size: 12.5px !important;
+color: var(--muted) !important;
+font-weight: 500 !important;
+}
+
+/* STREAMING_CHUNK:Styling primary and download buttons... /
+/ ---------------------------------------------------------------
+Buttons
+--------------------------------------------------------------- */
+
+.stButton > button {
+background-color: var(--accent) !important;
+color: var(--text-on-accent) !important;
+border: none !important;
+border-radius: var(--radius-sm) !important;
+font-weight: 600 !important;
+font-size: 14px !important;
+padding: 10px 20px !important;
+transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.stButton > button:hover {
+background-color: var(--accent-hover) !important;
+}
+
+.stButton > button:active {
+transform: scale(0.99);
+}
+
+/* STREAMING_CHUNK:Styling download action buttons... */
+.stDownloadButton > button {
+background-color: var(--primary) !important;
+color: var(--text-on-primary) !important;
+border: none !important;
+border-radius: var(--radius-sm) !important;
+font-weight: 600 !important;
+font-size: 14px !important;
+height: 50px !important;
+width: 100%;
+transition: background 0.15s ease;
+}
+
+.stDownloadButton > button:hover {
+background-color: var(--primary-light) !important;
+}
+
+/* STREAMING_CHUNK:Styling Applicant Summary KPI Cards... /
+/ ---------------------------------------------------------------
+Applicant summary KPI cards (dashboard.py)
+--------------------------------------------------------------- */
+
+.summary-title {
+color: var(--primary);
+font-size: 16px;
+font-weight: 600;
+margin: 8px 0 14px 0;
+}
+
+.kpi-card {
+background-color: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius-md);
+padding: 14px 16px;
+box-shadow: var(--shadow-card);
+}
+
+.kpi-title {
+color: var(--muted);
+font-size: 11.5px;
+font-weight: 500;
+margin-bottom: 6px;
+}
+
+/* STREAMING_CHUNK:Styling KPI values and detail rows... */
+.kpi-value {
+color: var(--primary);
+font-size: 19px;
+font-weight: 600;
+}
+
+.detail-title {
+color: var(--primary);
+font-size: 14.5px;
+font-weight: 600;
+margin: 18px 0 10px 0;
+}
+
+.detail-row {
+font-size: 13px;
+color: var(--text);
+padding: 6px 0;
+border-bottom: 1px solid var(--border);
+}
+
+.detail-row span {
+color: var(--muted);
+font-weight: 400;
+}
+
+/* STREAMING_CHUNK:Styling the main AI Decision Prediction Card... /
+/ ---------------------------------------------------------------
+AI decision card (dashboard.py -> show_prediction)
+--------------------------------------------------------------- */
+
+.decision-card {
+background-color: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 22px 26px;
+box-shadow: var(--shadow-card);
+margin-bottom: 6px;
+}
+
+.decision-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 16px;
+}
+
+.decision-badge {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-size: 19px;
+font-weight: 600;
+padding: 10px 18px;
+border-radius: var(--radius-md);
+}
+
+/* STREAMING_CHUNK:Styling success/danger states for badges and metrics... */
+.decision-badge.approved {
+background-color: var(--success-bg);
+color: var(--success);
+}
+
+.decision-badge.rejected {
+background-color: var(--danger-bg);
+color: var(--danger);
+}
+
+.decision-caption {
+color: var(--muted);
+font-size: 12px;
+margin-top: 4px;
+}
+
+.confidence-block {
+text-align: right;
+}
+
+.confidence-label {
+color: var(--muted);
+font-size: 11px;
+margin-bottom: 2px;
+}
+
+.confidence-value {
+font-size: 24px;
+font-weight: 700;
+}
+
+.confidence-value.approved { color: var(--success); }
+.confidence-value.rejected { color: var(--danger); }
+
+/* STREAMING_CHUNK:Styling Risk Cards and Progress bar recoloring... */
+.risk-card {
+border-radius: var(--radius-md);
+padding: 14px 18px;
+margin-top: 16px;
+font-size: 13px;
+line-height: 1.6;
+}
+
+.risk-card.low {
+background-color: var(--success-bg);
+color: var(--success-text);
+border-left: 4px solid var(--success);
+border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.risk-card.high {
+background-color: var(--danger-bg);
+color: var(--danger-text);
+border-left: 4px solid var(--danger);
+border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* Progress bar recolor */
+div[data-testid="stProgress"] > div > div > div {
+background-color: var(--accent) !important;
+}
+
+/* STREAMING_CHUNK:Styling the Explainable AI Card... /
+/ ---------------------------------------------------------------
+AI Explanation card
+--------------------------------------------------------------- */
+
+.explain-card {
+background-color: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+padding: 22px 26px;
+box-shadow: var(--shadow-card);
+margin: 18px 0;
+}
+
+.explain-card.approved { border-left: 4px solid var(--success); }
+.explain-card.rejected { border-left: 4px solid var(--danger); }
+
+.explain-heading {
+font-size: 15px;
+font-weight: 600;
+color: var(--primary);
+margin-bottom: 10px;
+}
+
+.explain-body {
+font-size: 13px;
+color: var(--text);
+line-height: 1.7;
+}
+
+.explain-subheading {
+font-size: 13.5px;
+font-weight: 600;
+color: var(--primary);
+margin: 16px 0 8px 0;
+}
+
+.profile-line {
+font-size: 13px;
+color: var(--text);
+padding: 4px 0;
+}
+
+/* STREAMING_CHUNK:Styling What-if analysis components... /
+/ ---------------------------------------------------------------
+What-if analysis cards
+--------------------------------------------------------------- */
+
+.whatif-intro {
+font-size: 13px;
+color: var(--muted);
+margin-bottom: 14px;
+}
+
+.whatif-card {
+background-color: var(--card);
+border: 1px solid var(--border);
+border-left: 4px solid var(--accent);
+border-radius: 0 var(--radius-md) var(--radius-md) 0;
+padding: 14px 18px;
+margin-bottom: 12px;
+box-shadow: var(--shadow-card);
+}
+
+.whatif-title {
+font-size: 13.5px;
+font-weight: 600;
+color: var(--primary);
+margin-bottom: 4px;
+}
+
+.whatif-body {
+font-size: 12.5px;
+color: var(--muted);
+line-height: 1.6;
+}
+
+.whatif-empty {
+background-color: var(--warning-bg);
+border: 1px solid var(--warning-border);
+color: var(--warning-text);
+border-radius: var(--radius-md);
+padding: 14px 18px;
+font-size: 13px;
+}
+
+/* STREAMING_CHUNK:Styling the Application Sidebar and nested content... /
+/ ---------------------------------------------------------------
+Sidebar
+--------------------------------------------------------------- */
+
+section[data-testid="stSidebar"] {
+background-color: var(--card) !important;
+border-right: 1px solid var(--border) !important;
+}
+
+/* Standard sidebar text inherits standard text */
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+color: var(--text);
+}
+
+.sidebar-brand {
+font-size: 18px;
+font-weight: 700;
+margin-top: 8px;
+color: var(--text);
+}
+
+.sidebar-caption {
+font-size: 11.5px;
+color: var(--muted);
+margin-bottom: 18px;
+}
+
+.sidebar-section-label {
+font-size: 10.5px;
+letter-spacing: 0.04em;
+color: var(--muted) !important;
+margin: 4px 0 8px 0;
+}
+
+/* STREAMING_CHUNK:Styling Sidebar Badges and Model Statistics... */
+.sidebar-model-badge {
+display: inline-block;
+background-color: var(--success-bg);
+color: var(--success-text) !important;
+font-size: 12.5px;
+font-weight: 600;
+padding: 6px 12px;
+border-radius: 20px;
+margin-bottom: 14px;
+}
+
+.sidebar-stat {
+background-color: var(--primary-light);
+border-radius: var(--radius-sm);
+padding: 10px 12px;
+}
+
+.sidebar-stat-label {
+font-size: 10px;
+color: var(--text-on-primary) !important;
+opacity: 0.8;
+margin-bottom: 2px;
+}
+
+.sidebar-stat-value {
+font-size: 17px;
+font-weight: 700;
+color: var(--text-on-primary) !important;
+}
+
+.sidebar-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 6px;
+margin-bottom: 10px;
+}
+
+/* STREAMING_CHUNK:Styling Sidebar Tags and the Footer... */
+.sidebar-tag {
+background-color: var(--primary-light);
+color: var(--text-on-primary) !important;
+font-size: 10.5px;
+padding: 5px 10px;
+border-radius: 20px;
+}
+
+.sidebar-version {
+font-size: 10.5px;
+color: var(--muted) !important;
+margin-top: 24px;
+}
+
+/* ---------------------------------------------------------------
+Footer
+--------------------------------------------------------------- */
+
+.footer {
+text-align: center;
+color: var(--muted);
+font-size: 11.5px;
+padding: 18px 0 4px 0;
+}
