@@ -820,7 +820,7 @@ def generate_pdf(
     report_meta.setdefault("model_version", "v1.0")
     report_meta.setdefault("developer", "Saksham")
     report_meta.setdefault("version", "v1.0.0")
-    report_meta.setdefault("github_url", "github.com/your-username/CredenceAI")
+    report_meta.setdefault("github_url", "github.com/saksham-2202/CredenceAI")
 
     story = []
     story += build_header(styles, palette, logo_path=logo_path)
