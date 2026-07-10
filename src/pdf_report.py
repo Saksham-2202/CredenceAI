@@ -41,11 +41,8 @@ from reportlab.platypus import (
 )
 from reportlab.pdfgen import canvas as pdfcanvas
 
-try:
-    import qrcode
-    QR_AVAILABLE = True
-except ImportError:
-    QR_AVAILABLE = False
+
+QR_AVAILABLE = False
 
 
 # =================================================================
@@ -823,7 +820,7 @@ def generate_pdf(
     report_meta.setdefault("github_url", "github.com/saksham-2202/CredenceAI")
 
     story = []
-    story += build_header(styles, palette, logo_path=logo_path)
+    story += build_header(styles, palette, logo_path=None)
     story += build_report_information(styles, palette, report_meta)
     story += build_applicant_table(styles, palette, applicant_data)
     story += build_financial_table(styles, palette, financial_data)
