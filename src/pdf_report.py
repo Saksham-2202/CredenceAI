@@ -10,7 +10,7 @@ approve / reject decision.
 
 Built entirely with reportlab.platypus (no canvas text drawing).
 
-Author  : Sam
+Author  : Saksham
 Module  : src/pdf_report.py
 -----------------------------------------------------------------
 """
@@ -330,7 +330,7 @@ def build_report_information(styles, palette, report_meta):
     right_rows = [
         ("Prediction Model", report_meta.get("model_name", "Naive Bayes")),
         ("Model Version", report_meta.get("model_version", "v1.0")),
-        ("Developer", report_meta.get("developer", "Sam")),
+        ("Developer", report_meta.get("developer", "Saksham")),
     ]
 
     def render_column(rows):
@@ -659,7 +659,7 @@ def build_footer(styles, palette, report_meta):
     ]
     right = [
         Paragraph(f"Version: {report_meta.get('version', 'v1.0.0')}", styles["footer_small_right"]),
-        Paragraph(report_meta.get("github_url", "github.com/your-username/CredenceAI"), styles["footer_small_right"]),
+        Paragraph(report_meta.get("github_url", "github.com/saksham-2202/CredenceAI"), styles["footer_small_right"]),
         Paragraph(f"Generated: {now.strftime('%d %b %Y, %I:%M %p')}", styles["footer_small_right"]),
     ]
 
@@ -818,7 +818,7 @@ def generate_pdf(
     report_meta.setdefault("report_id", generate_report_id())
     report_meta.setdefault("model_name", "Naive Bayes")
     report_meta.setdefault("model_version", "v1.0")
-    report_meta.setdefault("developer", "Sam")
+    report_meta.setdefault("developer", "Saksham")
     report_meta.setdefault("version", "v1.0.0")
     report_meta.setdefault("github_url", "github.com/your-username/CredenceAI")
 
@@ -886,6 +886,6 @@ if __name__ == "__main__":
         suggestions=None,
         output_path="/home/claude/demo_loan_report.pdf",
         logo_path="/home/claude/assets/logo.png",
-        report_meta={"developer": "Sam"},
+        report_meta={"developer": "Saksham"},
     )
     print("Demo PDF generated.")
