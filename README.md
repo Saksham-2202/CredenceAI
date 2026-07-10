@@ -2,7 +2,7 @@
 
 # 🏦 Credence AI
 
-### AI Powered Loan Eligibility Assessment System
+### Machine Learning Loan Approval System
 
 **Enterprise-grade Machine Learning application for instant, explainable loan eligibility decisions.**
 
@@ -23,7 +23,6 @@
 
 [Overview](#-overview) •
 [Features](#-key-features) •
-[Live Demo](#-live-demo) •
 [Installation](#-installation) •
 [Architecture](#-architecture-diagram) •
 [Contributing](#-contributing)
@@ -36,8 +35,6 @@
 
 - [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Screenshots](#-screenshots)
-- [Live Demo](#-live-demo)
 - [Architecture Diagram](#-architecture-diagram)
 - [Workflow Diagram](#-workflow-diagram)
 - [Folder Structure](#-folder-structure)
@@ -98,7 +95,7 @@ Unlike a typical academic ML demo, Credence AI treats the *presentation layer* a
 
 ## 🚀 Live Demo
 
-🔗 **[Launch Credence AI](https://your-deployment-url.streamlit.app)** *(replace with your deployed Streamlit Community Cloud URL)*
+🔗 **[Launch Credence AI] https://credenceai.streamlit.app/
 
 ---
 
@@ -323,8 +320,6 @@ A probabilistic classifier that applies Bayes' theorem with a "naive" assumption
 | K-Nearest Neighbors | 75.50% | 62.00% | 50.81% | 55.85% |
 | **Gaussian Naive Bayes** | **86.50%** | **78.33%** | **77.04%** | **77.68%** |
 
-> Replace the placeholder values above with your actual evaluation metrics from `train_model.py`.
-
 ---
 
 ## 🏆 Why Naive Bayes Was Selected
@@ -364,7 +359,7 @@ Every assessment can be exported as a polished, bank-grade PDF report — comple
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/CredenceAI.git
+git clone https://github.com/Saksham-2202/CredenceAI.git
 cd CredenceAI
 ```
 
@@ -502,13 +497,13 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ## 👤 Author
 
-**(Saksham)**
+**Saksham**
 B.Tech Computer Science Engineering — IK Gujral Punjab Technical University
 Python Full Stack Intern @ Codevocado
 
 - 🔗 GitHub: [@saksham-2202](https://github.com/saksham-2202)
 - 💼 LinkedIn: [Saksham .](https://www.linkedin.com/in/saksham-9853b0222/)
-- 📧 Email: your-email@example.com
+- 📧 Email: sakshamd863@gmail.com
 
 ---
 
